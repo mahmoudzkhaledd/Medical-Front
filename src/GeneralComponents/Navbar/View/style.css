@@ -1,0 +1,12 @@
+.main-nav__nav-bar {
+    width: 100%;
+}
+
+.main-nav__items li {
+    cursor: pointer;
+
+}
+
+.main-nav__items li:hover {
+    color: var(--primary);
+}
