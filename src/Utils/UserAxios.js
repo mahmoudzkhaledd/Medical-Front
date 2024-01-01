@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const userAxios = axios.create({
-    baseURL: process.env.NODE_ENV != 'development' ? 'https://portfolio-builder-backend.vercel.app/' : "http://192.168.1.8:3000/",
+    baseURL: process.env.NODE_ENV != 'development' ? 'https://medical-back.vercel.app/' : "http://192.168.1.8:3000/",
     withCredentials: true,
     headers: {
         post: {

@@ -55,9 +55,9 @@ export default function AdminLoginPage({ }) {
                             تسجيل الدخول الأدمن
                         </h1>
                         <form id="frm-login" className="space-y-4 md:space-y-6 flex flex-col gap-0" action="#" onSubmit={login}>
-                            <TextBox initialValue="admin" dir="ltr" name="username" placeholder="اسم المستخدم" label="اسم المستخدم" />
-                            <TextBox initialValue="admin" dir="ltr" name="password" type="password" placeholder="كلمة المرور" label="كلمة المرور" />
-                            <TextBox initialValue="123321" dir="ltr" name="pinNumber" placeholder="رمز الحماية" label="رمز الحماية" />
+                            <TextBox  dir="ltr" name="username" placeholder="اسم المستخدم" label="اسم المستخدم" />
+                            <TextBox  dir="ltr" name="password" type="password" placeholder="كلمة المرور" label="كلمة المرور" />
+                            <TextBox  dir="ltr" name="pinNumber" placeholder="رمز الحماية" label="رمز الحماية" />
                             <Button disabled={loading} loading={loading} text="تسجيل الدخول" width="100%" />
                         </form>
                     </div>
