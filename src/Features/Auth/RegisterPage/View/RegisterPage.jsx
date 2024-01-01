@@ -50,11 +50,11 @@ export default function RegisterPage({ }) {
                             إنشاء حساب
                         </h1>
                         <form id="from-register" className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => e.preventDefault()}>
-                            <TextBox initialValue={"mahmoud"} disabled={loading} label="الاسم" placeholder="الإسم" name="name" />
-                            <TextBox initialValue={"mahmoud@mohmal.in"} disabled={loading} label="الايميل" placeholder="ex@domain.com" name="email" type="email" />
-                            <TextBox initialValue={"12345678"} disabled={loading} label="الباسورد" placeholder="••••••••" name="password" type="password" />
-                            <TextBox initialValue={"12345678"} disabled={loading} label="تأكيد الباسورد" placeholder="••••••••" name="confirmPassword" type="password" />
-                            <TextBox initialValue={"12345678910"} disabled={loading} label="الهاتف" placeholder="0xx23456789" name="phone" />
+                            <TextBox  disabled={loading} label="الاسم" placeholder="الإسم" name="name" />
+                            <TextBox  disabled={loading} label="الايميل" placeholder="ex@domain.com" name="email" type="email" />
+                            <TextBox  disabled={loading} label="الباسورد" placeholder="••••••••" name="password" type="password" />
+                            <TextBox  disabled={loading} label="تأكيد الباسورد" placeholder="••••••••" name="confirmPassword" type="password" />
+                            <TextBox  disabled={loading} label="الهاتف" placeholder="0xx23456789" name="phone" />
                             <ComboBox text="الجنس" items={genders} selected={gender} onSelect={onSelect} />
                             <Button loading={loading} disabled={loading} text="إنشاء الحساب" width="100%" onClick={register} />
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
