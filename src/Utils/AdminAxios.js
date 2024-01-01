@@ -2,7 +2,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 const adminAxios = axios.create({
-    baseURL: process.env.NODE_ENV != 'development' ? 'https://medical-back.vercel.app/' : "http://192.168.1.8:3000/admin",
+    baseURL: process.env.NODE_ENV != 'development' ? 'https://medical-back.vercel.app/admin' : "http://192.168.1.8:3000/admin",
     withCredentials: true,
     headers: {
         post: {
