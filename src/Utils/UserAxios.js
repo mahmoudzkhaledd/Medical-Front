@@ -2,7 +2,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const userAxios = axios.create({
-    baseURL: process.env.NODE_ENV != 'development' ? 'https://medical-back.vercel.app/' : "http://192.168.1.8:3000/",
+    baseURL: process.env.NODE_ENV != 'development' ? 
+    'https://medical-back.vercel.app/' : 
+    "http://localhost:3000/",
     withCredentials: true,
     headers: {
         post: {
@@ -13,6 +15,7 @@ const userAxios = axios.create({
 
 
 userAxios.interceptors.request.use(request => {
+    console.log(localStorage.getItem('token'));
     request.headers.set('token', `Bearer ${localStorage.getItem('token')}`);
     return request;
 }, error => {

@@ -51,8 +51,8 @@ export default function LoginPage({ }) {
                             تسجيل الدخول
                         </h1>
                         <form id="frm-login" className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => e.preventDefault()}>
-                            <TextBox name="email"  disabled={loading} placeholder="الايميل" label="الايميل" />
-                            <TextBox name="password"  disabled={loading} placeholder="الباسورد" label="الباسورد" type="password" />
+                            <TextBox  name="email"  disabled={loading} placeholder="الايميل" label="الايميل" />
+                            <TextBox  name="password"  disabled={loading} placeholder="الباسورد" label="الباسورد" type="password" />
                             <div className="flex items-center justify-between">
                                 <div className="flex items-start">
                                     <div className="flex items-center h-5">
