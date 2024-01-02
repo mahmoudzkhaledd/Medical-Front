@@ -61,7 +61,7 @@ export default function OrderModal({ order, isOpen, closeModal,refetch, service,
                                     طلب الخدمة
                                 </Dialog.Title>
 
-                                <TextBox initialValue={order?.notes} id={"notes"} disabled={loading} maxLength={200} className=" my-8" area={true} placeholder="ملاحظات" label="ملاحظات" />
+                                <TextBox initialValue={order?.notes} id={"notes"} disabled={loading} maxLength={2000} className=" my-8" area={true} placeholder="ملاحظات" label="ملاحظات" />
                                 <div className="flex flex-row justify-between items-center">
                                     <p>
                                         {service.price + " جنية "}
