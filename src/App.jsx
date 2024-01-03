@@ -46,7 +46,7 @@ function MainRoute() {
   }
 
   if (error != null && error.response != null && error.response.status == 501) {
-    return <div className='w-screen h-screen flex flex-col justify-center items-center'>
+    return <div className='w-screen h-screen flex flex-col text-center px-4 justify-center items-center'>
       <SorryDiv message={error.response.data.message} />
     </div>;
   }
