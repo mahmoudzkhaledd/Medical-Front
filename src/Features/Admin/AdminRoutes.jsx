@@ -52,7 +52,6 @@ function AuthWrapper() {
     }
 
     if (data != null && token != null) {
-
         if (data.suspended) {
             localStorage.removeItem("a_token")
             window.location.href = "/admin/login";
@@ -61,18 +60,23 @@ function AuthWrapper() {
         if (path == "/admin/login") {
             window.location.href = "/admin"
             return;
-            return <Navigate to={"/admin"} replace={true} />;
+
         }
     } else {
-        if (path != "/admin/login") {
-            window.location.href = "/admin/login"
-            return
-            return <Navigate to={"/admin/login"} replace={true} />;
-        } else {
-            return <Outlet />;
-        }
+        // if (path != "/admin/login") {
+        //     window.location.href = "/admin/login"
+        //     return
+        // } else {
+        //     return <Outlet />;
+        // }
     }
     if (error != null) {
+        
+        if (error.response != null && error.response.status == 455) { 
+            localStorage.removeItem("a_token")
+            window.location.href = "/admin/login"
+            return;
+        }
         return <div className='w-screen h-screen flex flex-col justify-center items-center'>
             <SorryDiv message="يوجد مشكلة الرجاء المحاولة مرة اخرى" />
         </div>;
