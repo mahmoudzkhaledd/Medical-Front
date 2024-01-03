@@ -12,7 +12,7 @@ export default function ResponsableAdmin({ responableAdmins = [], refetch }) {
     const [showModal, setModal] = useState(false);
     const deleteAdmin = async (id, index) => {
         if (id == null || !window.confirm("هل أنت متأكد من حذف المدير من الطلب؟")) return;
-        console.log(id);
+
         setLoading(index)
         try {
             const res = await adminAxios.delete(`/orders/${order._id}/admins/${id}`);

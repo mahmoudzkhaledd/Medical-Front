@@ -20,7 +20,7 @@ function getStatusNumber(status) {
 }
 export default function OrderPage({ }) {
     const params = useParams();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const [showModal, setModal] = useState(false);
 
     const { isLoading, error, data, refetch } = useQuery(
@@ -42,13 +42,13 @@ export default function OrderPage({ }) {
     const statusNumber = getStatusNumber(order.status || "");
     const cancelOrder = async () => {
         if (window.confirm("هل أنت متأكد من الغاء الطلب؟")) {
-            setLoading(true);
+            setLoading('cancel');
             try {
                 const res = await userAxios.post(`/orders/${order._id}/cancel`);
                 refetch();
             } catch (ex) {
             }
-            setLoading(false);
+            setLoading(null);
         }
     }
 
@@ -141,11 +141,11 @@ export default function OrderPage({ }) {
                         </>
                     }
                     {
-                        (order.status == "pending" || order.status == 'canceled') && <>
+                        (order.status == "pending" || order.status == 'canceled' || order.status == 'accepted') && <>
                             <br />
                             <div className="flex flex-row gap-4">
-                                <Button loading={loading} disabled={loading} onClick={cancelOrder} text={order.status == 'canceled' ? "تفعيل الطلب" : "الغاء الطلب"} />
-                                <Button loading={loading} disabled={loading} onClick={() => setModal(true)} text="تعديل الملاحظات" />
+                                <Button loading={loading == 'cancel'} disabled={loading != null} onClick={cancelOrder} text={order.status == 'canceled' ? "تفعيل الطلب" : "الغاء الطلب"} />
+                                <Button loading={loading == 'edit'} disabled={loading != null} onClick={() => setModal(true)} text="تعديل الملاحظات" />
                             </div>
                         </>
                     }

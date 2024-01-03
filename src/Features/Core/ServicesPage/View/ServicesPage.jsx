@@ -5,12 +5,13 @@ import SorryDiv from "@/GeneralComponents/SorryDiv/SorryDiv";
 import Spinner from "@/GeneralElements/Spinner/Spinner";
 import { userAxios } from "@/Utils/UserAxios";
 import { userStore } from "@/hooks/UserRedux/UserStore";
-import { useState } from "react";
+
 import { useQuery } from "react-query";
 import { useSearchParams } from "react-router-dom";
+import { configs } from "../../CoreTexts";
 
 export default function ServicesPage({ }) {
-
+    
     const [searchParams, setSearch] = useSearchParams({
         page: 1,
         search: "",
@@ -32,15 +33,10 @@ export default function ServicesPage({ }) {
             search: search || "",
         });
     };
-    const onSearch = (se) => {
-        setSearch({
-            page: page || 1,
-            search: se || "",
-        });
-    };
+
     return (
         <section>
-            <CustomHeader />
+            <CustomHeader data={configs.servicesPage}/>
             <div className="flex flex-row flex-wrap justify-center gap-4 ">
                 {
                     (userStore.getState().user.user != null && localStorage.getItem('token') != null) ?

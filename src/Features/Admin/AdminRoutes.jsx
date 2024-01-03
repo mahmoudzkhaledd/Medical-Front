@@ -30,7 +30,7 @@ function AuthWrapper() {
     const path = window.location.pathname;
 
     const disp = useDispatch();
-    console.log(path);
+
     const { isLoading, error, data, refetch } = useQuery(
         "get-admin-by-token",
         () => adminAxios.post('login/token').then((d) => {
@@ -52,21 +52,19 @@ function AuthWrapper() {
     }
 
     if (data != null && token != null) {
-        console.log('case login');
+
         if (data.suspended) {
             localStorage.removeItem("a_token")
             window.location.href = "/admin/login";
             return;
         }
         if (path == "/admin/login") {
-            console.log('case login and go to login page');
             window.location.href = "/admin"
             return;
             return <Navigate to={"/admin"} replace={true} />;
         }
     } else {
         if (path != "/admin/login") {
-            console.log('case not logged in and go to any page');
             window.location.href = "/admin/login"
             return
             return <Navigate to={"/admin/login"} replace={true} />;
@@ -75,7 +73,6 @@ function AuthWrapper() {
         }
     }
     if (error != null) {
-        console.log('case error');
         return <div className='w-screen h-screen flex flex-col justify-center items-center'>
             <SorryDiv message="يوجد مشكلة الرجاء المحاولة مرة اخرى" />
         </div>;

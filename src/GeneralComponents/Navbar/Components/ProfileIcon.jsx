@@ -62,6 +62,7 @@ export default function ProfileIcon({ }) {
 
                             <li>
                                 <Link
+                                    onClick={() => setShow(false)}
                                     to="/orders"
                                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
                                     role="menuitem"
@@ -71,6 +72,7 @@ export default function ProfileIcon({ }) {
                             </li>
                             <li>
                                 <Link
+                                    onClick={() => setShow(false)}
                                     to="/settings"
                                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
                                     role="menuitem"
@@ -81,6 +83,7 @@ export default function ProfileIcon({ }) {
                             {
                                 (userStore.getState().user.user != null && !userStore.getState().user.user.verifiedEmail) && <li>
                                     <Link
+                                        onClick={() => setShow(false)}
                                         to="/verify-email"
                                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
                                         role="menuitem"

@@ -97,13 +97,7 @@ export default function ServiceDetailsPage({ }) {
                                     />
                                 </svg>}
                                 className="bg-gray-900 text-center text-base font-bold text-white hover:bg-gray-800 px-12 py-3 md:px-5" text="طلب الان" />
-                            {/* <button
-                                type="button"
-                                className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
-                            >
-
-                                طلب الان
-                            </button> */}
+    
                         </div>
 
                     </div>

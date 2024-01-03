@@ -66,7 +66,6 @@ export default function AdminOrdersPage({ }) {
     if (isError) {
         return <SorryDiv message="الرجاء المحاولة مرة اخرى" />
     }
-    console.log(data.data);
     return (
         <>
             <h5 className=" mb-5">الطلبات الخاصة بالمدير</h5>

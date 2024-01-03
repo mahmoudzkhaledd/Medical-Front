@@ -15,7 +15,7 @@ const userAxios = axios.create({
 
 
 userAxios.interceptors.request.use(request => {
-    console.log(localStorage.getItem('token'));
+
     request.headers.set('token', `Bearer ${localStorage.getItem('token')}`);
     return request;
 }, error => {
