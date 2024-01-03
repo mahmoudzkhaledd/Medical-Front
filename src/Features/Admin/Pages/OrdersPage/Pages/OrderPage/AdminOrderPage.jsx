@@ -127,7 +127,7 @@ export default function AdminOrderPage({ }) {
                             <div>
                                 <dt className="text-sm font-medium text-gray-500 mb-2"> الخدمة</dt>
                                 <Link to={order.serviceId != null ? `/admin/services/${order.serviceId?._id}` : null}
-                                    className="link text-sm font-semibold text-gray-900">
+                                    className={`${order.serviceId?.name != null ? "link": "text-red-700"} text-sm font-semibold `}>
                                     {order.serviceId?.name || "تم حذفها"}
                                 </Link>
                             </div>
