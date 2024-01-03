@@ -23,7 +23,7 @@ export default function Navbar() {
                 <Button onClick={() => setShowModal(true)} className="sm" icon={<IoMenu />} verticalPadding={15} horizontalPadding={15} borderRadius="50%" />
                 <ul className='lg main-nav__items d-flex-1'>
                     <li><a href="/#landing-header">الرئيسية</a></li>
-                    <li><a href="/#best-providing">الخدمات</a></li>
+                    <li><Link to="/services">الخدمات</Link></li>
                     <li><a href="/#about-us">من نحن</a></li>
                     <li><Link to="/contact">اتصل بنا</Link></li>
                 </ul>
