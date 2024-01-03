@@ -3,12 +3,15 @@ import OrderCard from "./Components/OrderCard/OrderCard";
 import { userAxios } from "@/Utils/UserAxios";
 import Spinner from "@/GeneralElements/Spinner/Spinner";
 import SorryDiv from "@/GeneralComponents/SorryDiv/SorryDiv";
+import Pagination from "@/GeneralComponents/Pagination/Pagination";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function OrdersPage({ }) {
-
+    const [page, setPage] = useState(1);
     const { isLoading, error, data } = useQuery(
-        'get-my-orders',
-        () => userAxios.get('/orders'),
+        ['get-my-orders', page],
+        () => userAxios.get(`/orders?page=${page-1 < 0 ? 0 : page-1}`),
         {
             refetchOnWindowFocus: false,
             retry: 1,
@@ -27,9 +30,10 @@ export default function OrdersPage({ }) {
         <div className="flex flex-col gap-5">
             {
                 data.data.orders.length != 0 ? data.data.orders.map((e, idx) => <OrderCard key={idx} order={e} />)
-                    : <SorryDiv message="لم يتم طلب أي خدمة بعد"/>
+                    : <SorryDiv message="لم يتم طلب أي خدمة بعد" />
             }
+            <Pagination count={Math.ceil(data.data.count / 10)} current={page} onChangePage={(e) => setPage(e)} />
         </div>
     );
-   
+
 }

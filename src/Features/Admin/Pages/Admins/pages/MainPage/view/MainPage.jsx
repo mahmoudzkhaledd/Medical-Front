@@ -1,14 +1,46 @@
 
 import SearchBar from "../Components/SearchBar";
-import OrdersTable from "../Components/OrdersTable";
+
 import Spinner from "@/GeneralElements/Spinner/Spinner";
 import SorryDiv from "@/GeneralComponents/SorryDiv/SorryDiv";
 import { adminAxios } from "@/Utils/AdminAxios";
 import { useSearchParams } from "react-router-dom";
-import { toast } from "react-toastify";
+
 import { useQuery } from "react-query";
 import Pagination from "@/GeneralComponents/Pagination/Pagination";
-
+import DataTable from "@/Features/Admin/GeneralComponents/DataTable/DataTable";
+const header = [
+    {
+        title: "رقم المدير",
+        ref: ['number'],
+    },
+    {
+        title: "الاسم",
+        ref: ['name'],
+    },
+    {
+        title: "اسم المستخدم",
+        ref: ['username'],
+    },
+    {
+        title: "الايميل",
+        ref: ['email'],
+    },
+    {
+        title: "الحالة",
+        ref: ['suspended'],
+        boolTrue: "موقوف",
+        boolFalse: "غير موقوف",
+    },
+    {
+        title: "عرض",
+        ref: [''],
+        link: "/admin/admins/",
+        linkRef: "_id"
+    },
+    
+   
+]
 export default function AdminsMainPage({ }) {
     const [searchParams, setSearch] = useSearchParams({
         page: 1,
@@ -58,7 +90,8 @@ export default function AdminsMainPage({ }) {
         <>
             <h5 className=" mb-5">المديرين</h5>
             <SearchBar selectedState={state} onSearch={onSearch} value={search || ""} />
-            <OrdersTable data={data.data.admins} />
+
+             <DataTable header={header} data={data.data.admins} /> 
             <br />
             <Pagination onChangePage={onChangePage} count={Math.ceil((data.data.count || 0) / 10)} current={Number(page) || 1} />
         </>

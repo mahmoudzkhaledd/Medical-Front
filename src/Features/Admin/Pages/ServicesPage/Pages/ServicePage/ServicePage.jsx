@@ -141,7 +141,7 @@ export default function ServicePage({ }) {
                             </div>
                             <div>
                                 <dt className="text-sm font-medium text-gray-500">الطلبات</dt>
-                                <Link to={`/admin/services/${data.data.service._id}/orders`}>
+                                <Link className="link" to={`/admin/services/${data.data.service._id}/orders`}>
                                     عرض
                                 </Link>
                             </div>
