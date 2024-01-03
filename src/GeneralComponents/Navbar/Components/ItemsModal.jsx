@@ -45,7 +45,7 @@ export default function ItemsModal({ closeModal, isOpen }) {
                                     <a href="/#landing-header" onClick={closeModal}><Button className="mb-3" text={"الرئيسية"} width={"100%"} /></a>
                                     <a href="/#best-providing" onClick={closeModal}><Button className="mb-3" text={"الخدمات"} width={"100%"} /></a>
                                     <a href="/#about-us" onClick={closeModal}><Button className="mb-3" text={"من نحن"} width={"100%"} /></a>
-                                    <a href="/" onClick={closeModal}><Button className="mb-3" text={"اتصل بنا"} width={"100%"} /></a>
+                                    <Link to="/contact" onClick={closeModal}><Button className="mb-3" text={"اتصل بنا"} width={"100%"} /></Link>
 
                                     {
                                         userStore.getState().user.user == null ? <>

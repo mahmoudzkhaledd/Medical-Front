@@ -25,7 +25,7 @@ export default function Navbar() {
                     <li><a href="/#landing-header">الرئيسية</a></li>
                     <li><a href="/#best-providing">الخدمات</a></li>
                     <li><a href="/#about-us">من نحن</a></li>
-                    <li><a href="/#">اتصل بنا</a></li>
+                    <li><Link to="/contact">اتصل بنا</Link></li>
                 </ul>
 
                 <div className='lg'>

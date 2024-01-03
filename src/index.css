@@ -8,7 +8,8 @@
 :root[data-theme="light"] {
   --text: rgb(27, 27, 27);
   --text-invert: rgb(255, 255, 255);
-  --background: rgb(255, 255, 255);
+  --background: rgb(255, 255, 255); 
+
   --primary: rgb(213, 240, 83);
   --primary-select: rgb(226, 245, 137);
   --secondary: rgb(238, 240, 246);
