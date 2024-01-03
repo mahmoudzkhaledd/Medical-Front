@@ -10,7 +10,7 @@ export default function LandingPage({ }) {
     return (
         <div className="dim-100 col-2">
             <CustomHeader data={configs.header} linkTo="/services" image={window.location.origin + '/images/doctor.svg'} />
-            <BestProviding />
+            {/* <BestProviding /> */}
             {
                 configs.body.map((e, idx) => <GeneralDetails key={idx} data={e} />)
             }

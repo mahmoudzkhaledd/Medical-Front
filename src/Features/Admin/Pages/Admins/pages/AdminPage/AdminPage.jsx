@@ -22,7 +22,7 @@ function pad(n, width, z) {
 
 export default function AdminPage({ }) {
     const searchParams = useParams();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const nav = useNavigate();
     const { isLoading, error, data, refetch } = useQuery(
         `get-admin-admin-${searchParams.id || ""}`,
@@ -43,7 +43,7 @@ export default function AdminPage({ }) {
     const banUser = async () => {
         if (window.confirm(`هل أنت متأكد من ${admin.suspended ? "تفعيل" : "ايقاف"} المستخدم؟`) && admin != null) {
 
-            setLoading(true);
+            setLoading('act');
             try {
                 const res = await adminAxios.post(`admins/${admin._id}/suspend`);
                 refetch();
@@ -51,18 +51,18 @@ export default function AdminPage({ }) {
             } catch (ex) {
                 toast.error(ex.message);
             }
-            setLoading(false);
+            setLoading(null);
         }
     }
     const deleteAdmin = async () => {
         if (window.confirm(`هل أنت متأكد من ${admin.suspended ? "تفعيل" : "ايقاف"} المستخدم؟`) && admin != null) {
 
-            setLoading(true);
+            setLoading('del');
             try {
                 const res = await adminAxios.delete(`admins/${admin._id}/delete`);
                 nav('/admin/admins', { replace: true });
             } catch (ex) { }
-            setLoading(false);
+            setLoading(null);
         }
     }
 
@@ -157,8 +157,8 @@ export default function AdminPage({ }) {
                         {
                             !admin.master &&
                             <div className="flex flex-row gap-4">
-                                <Button disabled={loading} loading={loading} text={admin.suspended ? "تفعيل الحساب" : "ايقاف الحساب"} onClick={banUser} />
-                                <Button disabled={loading} loading={loading} text="حذف المدير" onClick={deleteAdmin} />
+                                <Button disabled={loading != null} loading={loading == 'act'} text={admin.suspended ? "تفعيل الحساب" : "ايقاف الحساب"} onClick={banUser} />
+                                <Button disabled={loading != null} loading={loading == 'del'} text="حذف المدير" onClick={deleteAdmin} />
                             </div>
                         }
                     </div>
