@@ -63,14 +63,15 @@ function AuthWrapper() {
 
         }
     } else {
-        // if (path != "/admin/login") {
-        //     window.location.href = "/admin/login"
-        //     return
-        // } else {
-        //     return <Outlet />;
-        // }
+        localStorage.removeItem("a_token")
+        if (path != "/admin/login") {
+            window.location.href = "/admin/login"
+            return;
+        } else {
+            return <Outlet />;
+        }
     }
-    if (error != null) {
+    if (error != null ) {
         
         if (error.response != null && error.response.status == 455) { 
             localStorage.removeItem("a_token")
