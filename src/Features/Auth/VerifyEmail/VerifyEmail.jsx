@@ -31,7 +31,7 @@ export default function VerifyEmailPage({ }) {
             return;
         } catch (ex) {
             if (ex.response != null && ex.response.data.msg != null) {
-                
+
                 if (ex.response.status == 420) {
                     disp(logOutUser());
                     nav('/login');
@@ -48,7 +48,7 @@ export default function VerifyEmailPage({ }) {
             toast("تم الارسال بنجاح");
             return;
         } catch (ex) {
-           
+
             toast.error(ex.message);
 
         }
@@ -63,7 +63,7 @@ export default function VerifyEmailPage({ }) {
                         </div>
                         <div className="flex flex-row text-sm font-medium text-gray-400">
                             <p>
-                                لدينا قمنا بإرسال رمز إلى بريدك الإلكتروني {state?.email}.
+                                لقد قمنا بإرسال رمز إلى بريدك الإلكتروني {state?.email}.
                             </p>
                         </div>
                     </div>
@@ -87,6 +87,20 @@ export default function VerifyEmailPage({ }) {
                                             إعادة الارسال
                                         </a>
                                     </div>
+                                </div>
+                                <div
+                                    id="alert-2"
+                                    className="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                    role="alert"
+                                >
+                                    <i className="fa-solid fa-circle-exclamation text-2xl"></i>
+                                    <span className="sr-only">Info</span>
+                                    <div className="ms-3 text-sm font-medium inline-block w-5/6">
+                                        <h6 className=" mb-1 font-bold">لم تصلني الرسالة!</h6>
+
+                                        <p className=" break-words">يرجى تفقد البريد المهمل لديك قبل اعادة ارسال ايميل جديد</p>
+                                    </div>
+
                                 </div>
                             </div>
                         </form>
