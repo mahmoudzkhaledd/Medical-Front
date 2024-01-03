@@ -138,7 +138,7 @@ export default function AdminPage({ }) {
                             <div>
                                 <dt className="text-sm font-medium text-gray-500 mb-2">الطلبات المسؤول عنها</dt>
                                 <dd className="text-sm font-semibold text-gray-900">
-                                    <Link to={`/admin/admins/${admin._id}/orders`}>
+                                    <Link className="link" to={`/admin/admins/${admin._id}/orders`}>
                                         عرض
                                     </Link>
                                 </dd>

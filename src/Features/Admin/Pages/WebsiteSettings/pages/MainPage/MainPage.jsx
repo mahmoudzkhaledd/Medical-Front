@@ -14,17 +14,17 @@ export default function WebsiteSettingsMainPage({ }) {
             retry: 1,
             refetchOnWindowFocus: false,
         });
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const changeWebsiteAvailability = async (available) => {
         if (window.confirm(available == null ? "هل أنت متأكد من حفظ الرسالة؟" : "هل أنت متأكد من ايقاف الموقع؟")) {
             const message = document.getElementById('closed-message').value;
-            setLoading(true);
+            setLoading(available == null ? 'save' : 'dis');
             try {
                 const res = await adminAxios.post(`configs/change-available`, { message, available: available });
                 refetch();
 
             } catch (ex) { }
-            setLoading(false);
+            setLoading(null);
         }
     }
     if (isLoading) {
@@ -53,8 +53,8 @@ export default function WebsiteSettingsMainPage({ }) {
                     <div className="flex flex-col gap-4">
                         <TextBox id={'closed-message'} maxLength={100} disabled={loading} initialValue={configs.closedMessage} className="w-100" placeholder="جاري عمل صيانة للموقع ..." label="الرسالة" />
                         <div className="flex flex-row gap-2 mt-2 justify-between">
-                            <Button loading={loading} disabled={loading} onClick={() => changeWebsiteAvailability(null)} text="حفظ" />
-                            <Button loading={loading} disabled={loading} onClick={() => changeWebsiteAvailability(!configs.available)} text={configs.available ? "ايقاف" : "تفعيل"} />
+                            <Button loading={loading == 'save'} disabled={loading != null} onClick={() => changeWebsiteAvailability(null)} text="حفظ" />
+                            <Button loading={loading == 'dis'} disabled={loading != null} onClick={() => changeWebsiteAvailability(!configs.available)} text={configs.available ? "ايقاف" : "تفعيل"} />
                         </div>
                     </div>
                 </div>

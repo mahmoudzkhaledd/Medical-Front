@@ -64,7 +64,7 @@ function generatePassword() {
 }
 export default function AddNewAdmin({ editMode }) {
     const params = useParams();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const nav = useNavigate();
 
 
@@ -85,7 +85,7 @@ export default function AddNewAdmin({ editMode }) {
             }
         }
 
-        setLoading(true);
+        setLoading('add');
         try {
             const data = await adminModel.parseAsync({
                 name,
@@ -108,7 +108,7 @@ export default function AddNewAdmin({ editMode }) {
                 toast.error(ex.issues[0].message);
             }
         }
-        setLoading(false);
+        setLoading(null);
     }
 
 
@@ -124,7 +124,7 @@ export default function AddNewAdmin({ editMode }) {
             toast.error("يجب أن يكون رمز الحماية 6 ارقام فقط")
             return;
         }
-        setLoading(true);
+        setLoading('pass');
         try {
             const res = await adminAxios.put(`/admins/${admin._id}/change-password`,
                 { password, pinNumber });
@@ -136,7 +136,7 @@ export default function AddNewAdmin({ editMode }) {
                 toast.error(ex.issues[0].message);
             }
         }
-        setLoading(false);
+        setLoading(null);
     };
     const { isLoading, error, data, refetch } = useQuery(
         "get-admin-edit",
@@ -198,7 +198,7 @@ export default function AddNewAdmin({ editMode }) {
 
                                 <TextBox initialValue={admin?.phone} disabled={loading} name="phone" placeholder="رقم الهاتف" label="رقم الهاتف" />
 
-                                <Button loading={loading} disabled={loading} text={editMode ? "تعديل المدير" : "إضافة المدير"} className=" mr-auto" onClick={addAdmin} />
+                                <Button loading={loading == 'add'} disabled={loading != null} text={editMode ? "تعديل المدير" : "إضافة المدير"} className=" mr-auto" onClick={addAdmin} />
                             </form>
                         </div>
 
@@ -216,7 +216,7 @@ export default function AddNewAdmin({ editMode }) {
                                 <form id="frm-passwords" className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
                                     <TextBox disabled={loading} type="password" name="password" placeholder="كلمة المرور" label="كلمة المرور" />
                                     <TextBox maxLength={6} disabled={loading} name="pinNumber" placeholder="رمز الحماية" label="رمز الحماية" />
-                                    <Button loading={loading} disabled={loading} text="تعديل كلمة المرور" className=" mr-auto" onClick={editPassword} />
+                                    <Button loading={loading == 'pass'} disabled={loading != null} text="تعديل كلمة المرور" className=" mr-auto" onClick={editPassword} />
                                 </form>
                             </div>
                         </div>

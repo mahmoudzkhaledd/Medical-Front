@@ -28,7 +28,7 @@ function pad(n, width, z) {
 
 export default function AdminOrderPage({ }) {
     const searchParams = useParams();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const nav = useNavigate();
     const ctx = useContext(orderContext);
     const { isLoading, error, data,refetch } = useQuery(
@@ -48,7 +48,7 @@ export default function AdminOrderPage({ }) {
     const order = data.data.order;
     const changeOrderState = async () => {
         const { status, dateSelected, refuseReason } = Object.fromEntries(new FormData(document.getElementById('frm-change-state')).entries());
-        setLoading(true);
+        setLoading('state');
         try {
             const data = await shcema.parse({ status, dateSelected: dateSelected != "" ? new Date(dateSelected) : null, refuseReason });
 
@@ -66,21 +66,21 @@ export default function AdminOrderPage({ }) {
                 toast.error(ex.message);
             }
         }
-        setLoading(false);
+        setLoading(null);
     }
     const clearDate = () => {
         document.getElementById('date').value = null;
     };
     const deleteOrder = async () => {
         if (window.confirm("هل أنت متأكد من حذف الطلب؟") && order != null) {
-            setLoading(true);
+            setLoading('del');
             try {
                 const res = await adminAxios.delete(`orders/${order._id}/delete`);
                 nav('/admin/orders');
             } catch (ex) {
 
             }
-            setLoading(false);
+            setLoading(null);
         }
     };
     const splt = order.dateSelected?.split('/') || [];
@@ -115,7 +115,7 @@ export default function AdminOrderPage({ }) {
                     <div className="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6">
                         <div className="flex flex-row justify-between items-center">
                             <h3 className="mb-4 text-xl font-bold">بيانات الطلب</h3>
-                            <Button loading={loading} disabled={loading} onClick={deleteOrder} faicon="fa-solid fa-xmark" />
+                            <Button loading={loading == 'del'} disabled={loading != null} onClick={deleteOrder} faicon="fa-solid fa-xmark" />
                         </div>
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                             <div>
@@ -195,7 +195,7 @@ export default function AdminOrderPage({ }) {
                             <Button height={47} onClick={clearDate} faicon="fa-solid fa-xmark" />
                         </div>
                         <TextBox disabled={loading} name="refuseReason" initialValue={order.refuseReason} area={true} label="سبب الرفض (ان تم الرفض)" placeholder="سبب الرفض" />
-                        <Button disabled={loading} loading={loading} onClick={changeOrderState} text="تغيير الحالة" />
+                        <Button disabled={loading != null} loading={loading == 'state'} onClick={changeOrderState} text="تغيير الحالة" />
                     </form>
                 </div>
             </div>

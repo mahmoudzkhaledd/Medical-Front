@@ -10,7 +10,7 @@ import SorryDiv from '@/GeneralComponents/SorryDiv/SorryDiv'
 import { Link } from 'react-router-dom'
 export default function AddResponsableAdminModal({ closeModal, isOpen }) {
     const order = useContext(orderContext).order;
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
 
     const { isLoading, error, data, refetch } = useQuery(
         "get-admins-for-order",
@@ -24,16 +24,16 @@ export default function AddResponsableAdminModal({ closeModal, isOpen }) {
     if (order == null) {
         return <></>;
     }
-    const addAdmin = async (id) => {
+    const addAdmin = async (id, index) => {
         if (id == null) return;
-        setLoading(true)
+        setLoading(index)
         try {
             const res = await adminAxios.post(`/orders/${order._id}/admins`, { adminId: id });
             refetch();
         } catch (ex) {
 
         }
-        setLoading(false)
+        setLoading(null)
     }
     return (
         <Transition appear show={isOpen || false} as={Fragment}>
@@ -77,9 +77,9 @@ export default function AddResponsableAdminModal({ closeModal, isOpen }) {
                                                             <li key={idx} className="flex justify-between cursor-pointer items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                                                 <Link className='w-100' target='__blank' to={`/admin/admins/${e._id}`} >
                                                                     <span className="flex-1 ms-3 ">{e.name}</span>
-                                                                   
+
                                                                 </Link>
-                                                                <Button loading={loading} disabled={loading} onClick={() => addAdmin(e._id)} faicon="fa-solid fa-add" />
+                                                                <Button loading={loading == idx} disabled={loading != null} onClick={() => addAdmin(e._id, idx)} faicon="fa-solid fa-add" />
                                                             </li>)
                                                     }
                                                 </ul>

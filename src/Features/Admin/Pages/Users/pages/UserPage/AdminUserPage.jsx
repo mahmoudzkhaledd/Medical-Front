@@ -22,7 +22,7 @@ function pad(n, width, z) {
 
 export default function AdminUserPage({ }) {
     const searchParams = useParams();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
 
     const { isLoading, error, data, refetch } = useQuery(
         `get-user-admin-${searchParams.id || ""}`,
@@ -42,7 +42,7 @@ export default function AdminUserPage({ }) {
     const activeAccount = async () => {
         if (window.confirm("هل أنت متأكد؟") && user != null) {
 
-            setLoading(true);
+            setLoading('active');
             try {
                 const res = await adminAxios.post(`users/${user._id}/active-account`);
                 refetch();
@@ -51,13 +51,13 @@ export default function AdminUserPage({ }) {
                 toast.error(ex.message);
 
             }
-            setLoading(false);
+            setLoading(null);
         }
     }
     const banUser = async () => {
         if (window.confirm(`هل أنت متأكد من ${user.banned ? "الغاء حظر" : "حظر"} المستخدم؟`) && user != null) {
 
-            setLoading(true);
+            setLoading('ban');
             try {
                 const res = await adminAxios.post(`users/${user._id}/ban`);
                 refetch();
@@ -66,11 +66,11 @@ export default function AdminUserPage({ }) {
                 toast.error(ex.message);
 
             }
-            setLoading(false);
+            setLoading(null);
         }
     }
     const enterUserAccount = async () => {
-        setLoading(true);
+        setLoading('enter');
         try {
             const res = await adminAxios.post(`users/${user._id}/enter-account`);
             if (res.data.token != null) {
@@ -82,7 +82,7 @@ export default function AdminUserPage({ }) {
             
             toast.error(ex.message);
         }
-        setLoading(false);
+        setLoading(null);
     }
     return (
         <main>
@@ -96,7 +96,7 @@ export default function AdminUserPage({ }) {
                     <div className="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6">
                         <div className="flex flex-row justify-between items-center">
                             <h3 className="mb-4 text-xl font-bold">بيانات المستخدم</h3>
-                            <Button loading={loading} disabled={loading} onClick={enterUserAccount} text="دخول الحساب" />
+                            <Button loading={loading =='enter'} disabled={loading != null} onClick={enterUserAccount} text="دخول الحساب" />
                         </div>
                         <br />
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
@@ -159,8 +159,8 @@ export default function AdminUserPage({ }) {
                         </dl>
                         <br />
                         <div className="flex flex-row gap-4">
-                            <Button disabled={loading} loading={loading} text={!user.banned ? "حظر المستخدم" : "الغاء الحظر"} onClick={banUser} />
-                            <Button disabled={loading} loading={loading} text={!user.verifiedEmail ? "تفعيل الحساب" : "الغاء تفعيل الحساب"} onClick={activeAccount} />
+                            <Button disabled={loading != null} loading={loading == 'ban'} text={!user.banned ? "حظر المستخدم" : "الغاء الحظر"} onClick={banUser} />
+                            <Button disabled={loading != null} loading={loading == 'active'} text={!user.verifiedEmail ? "تفعيل الحساب" : "الغاء تفعيل الحساب"} onClick={activeAccount} />
                         </div>
                     </div>
 

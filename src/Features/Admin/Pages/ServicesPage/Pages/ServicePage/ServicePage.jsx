@@ -15,8 +15,8 @@ import { toast } from "react-toastify";
 export default function ServicePage({ }) {
     const searchParams = useParams();
     const nav = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const { isLoading, error, data, refetch,remove } = useQuery("get-sertice",
+    const [loading, setLoading] = useState(null);
+    const { isLoading, error, data, refetch, remove } = useQuery("get-sertice",
         () => adminAxios.get(`services/${searchParams.id || ""}`),
         {
             retry: 1,
@@ -31,7 +31,7 @@ export default function ServicePage({ }) {
     }
     const disableService = async () => {
         if (window.confirm("هل أنت متأكد من الغاء الخدمة؟") && data.data.service != null) {
-            setLoading(true);
+            setLoading('dis');
             try {
                 const res = await adminAxios.delete(`services/${data.data.service._id}`);
                 refetch();
@@ -40,12 +40,12 @@ export default function ServicePage({ }) {
             } catch (ex) {
                 toast.error(ex.message);
             }
-            setLoading(false);
+            setLoading(null);
         }
     };
     const deleteService = async () => {
         if (window.confirm("هل أنت متأكد من حذف الخدمة؟") && data.data.service != null) {
-            setLoading(true);
+            setLoading('del');
             try {
                 const res = await adminAxios.delete(`services/${data.data.service._id}/delete`);
                 nav('/admin/services');
@@ -54,7 +54,7 @@ export default function ServicePage({ }) {
             } catch (ex) {
                 toast.error(ex.message);
             }
-            setLoading(false);
+            setLoading(null);
         }
     };
 
@@ -93,7 +93,7 @@ export default function ServicePage({ }) {
                     <div className="bg-white shadow-lg shadow-gray-200 rounded-2xl p-4 mb-6">
                         <div className="flex flex-row justify-between items-center">
                             <h3 className="mb-4 text-xl font-bold">معلومات عن الخدمة</h3>
-                            <Button loading={loading} disabled={loading} onClick={deleteService} faicon="fa-solid fa-xmark" />
+                            <Button loading={loading == 'del'} disabled={loading != null} onClick={deleteService} faicon="fa-solid fa-xmark" />
                         </div>
                         <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                             <div>
@@ -155,7 +155,7 @@ export default function ServicePage({ }) {
                                 </dt>
                             </div>
                             <div className="sm:col-span-2">
-                                <Button disabled={loading} loading={loading} text={data.data.service.active ? "الغاء الخدمة" : "تنشيط لخدمة"} onClick={disableService} />
+                                <Button disabled={loading != null} loading={loading == 'dis'} text={data.data.service.active ? "الغاء الخدمة" : "تنشيط لخدمة"} onClick={disableService} />
                             </div>
                         </dl>
                     </div>
