@@ -32,8 +32,8 @@ export default function ServiceDetailsPage({ }) {
         <section >
             <OrderModal  isOpen={showModal} service={service} closeModal={() => setShowModal(false)} />
             <div className="container mx-auto px-4">
-
-                <div className="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16">
+                
+                <div className="lg:col-gap-6 xl:col-gap-6 mt-8 grid grid-cols-1 gap-6 lg:mt-12 lg:grid-cols-5 lg:gap-6">
                     <div className="lg:col-span-3 lg:row-end-1">
                         <div className="lg:flex lg:items-start">
                             <div className="lg:order-2 lg:ml-5">
