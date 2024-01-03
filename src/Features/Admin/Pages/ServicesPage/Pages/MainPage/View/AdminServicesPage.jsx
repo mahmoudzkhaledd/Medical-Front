@@ -28,6 +28,13 @@ const header = [
         ref: ['category'],
     },
     {
+        title: "الحالة",
+        ref: ['active'],
+        boolTrue: "نشطة",
+        boolFalse: "ملغاة",
+
+    },
+    {
         title: "تاريخ الإضافة",
         ref: ['createdAt'],
         date: true,
