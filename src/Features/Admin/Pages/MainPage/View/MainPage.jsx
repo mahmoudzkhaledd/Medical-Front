@@ -4,6 +4,7 @@ import { adminConfig } from "../../../AdminConfig";
 import { adminAxios } from "@/Utils/AdminAxios";
 import Spinner from "@/GeneralElements/Spinner/Spinner";
 import SorryDiv from "@/GeneralComponents/SorryDiv/SorryDiv";
+import { store } from "@/hooks/AdminRedux/AdminStore";
 
 export default function AdminMainPage({ }) {
     const [data, setData] = useState({
@@ -39,7 +40,11 @@ export default function AdminMainPage({ }) {
         obj[c._id] = c.seq;
     }
     return (
+        <>
+        <h4 className=" mb-5">مرحبا {store.getState().admin.admin?.name}</h4>
+      
         <div className="minpage__content flex flex-row flex-wrap gap-5" >
+            
             {
                 adminConfig.homepageCards.map((e, idx) =>
                     <div key={idx} className="flex flex-item gap-4 items-center px-7 py-4 bg-[color:var(--secondary)] rounded-lg shadow-xs">
@@ -58,6 +63,6 @@ export default function AdminMainPage({ }) {
                 )
             }
         </div>
-
+        </>
     )
 }

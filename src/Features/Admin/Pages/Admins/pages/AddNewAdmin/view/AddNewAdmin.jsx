@@ -139,7 +139,7 @@ export default function AddNewAdmin({ editMode }) {
         setLoading(null);
     };
     const { isLoading, error, data, refetch } = useQuery(
-        "get-admin-edit",
+        `get-admin-edit-${params.id}`,
         () => adminAxios.get(`admins/${params.id || ""}`),
         {
             retry: 1,
