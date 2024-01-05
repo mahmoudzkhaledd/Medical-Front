@@ -6,7 +6,7 @@ export default function ServiceCard({ service }) {
 
 
 
-        <div style={{maxWidth: "300px",}} className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div style={{maxWidth: "350px",}} className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img
                 style={{
                     maxWidth: "100%",
