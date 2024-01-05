@@ -39,13 +39,13 @@ export default function WebsiteSettingsMainPage({ }) {
             <h5>اعدادات الموقع</h5>
             <br />
             <div className="grid grid-2">
-                <div className="w-100 p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-100 p-5 bg-white border border-gray-200 rounded-lg shadow  ">
                     <h5 className=" text-lg font-bold">
                         الاعدادات الرئيسية
                     </h5>
 
                 </div>
-                <div className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow  ">
                     <h5 className=" text-lg font-bold">
                         ايقاف الموقع
                     </h5>

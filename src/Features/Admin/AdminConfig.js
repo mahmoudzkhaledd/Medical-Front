@@ -12,11 +12,11 @@ export const adminConfig = {
             icon: "fa-solid fa-stethoscope",
             name: "services",
         },
-        statistics: {
-            title: "إحصائيات",
-            icon: "fa-solid fa-chart-column",
-            name: "statistics",
-        },
+        // statistics: {
+        //     title: "إحصائيات",
+        //     icon: "fa-solid fa-chart-column",
+        //     name: "statistics",
+        // },
         orders: {
             title: "الطلبات",
             icon: "fa-regular fa-clock",
@@ -38,11 +38,11 @@ export const adminConfig = {
             icon: "fa-solid fa-wand-magic-sparkles",
             name: "website-settings",
         },
-        settings: {
-            title: "إعدادات",
-            icon: "fa-solid fa-gear",
-            name: "settings",
-        },
+        // settings: {
+        //     title: "إعدادات",
+        //     icon: "fa-solid fa-gear",
+        //     name: "settings",
+        // },
         clientPage: {
             title: "الصفحة الرئيسية",
             icon: "fa-solid fa-house",

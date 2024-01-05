@@ -74,7 +74,7 @@ export default function AddResponsableAdminModal({ closeModal, isOpen }) {
                                                 <ul className="my-4 space-y-3">
                                                     {
                                                         data.data.admins.map((e, idx) =>
-                                                            <li key={idx} className="flex justify-between cursor-pointer items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                                                            <li key={idx} className="flex justify-between cursor-pointer items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow   ">
                                                                 <Link className='w-100' target='__blank' to={`/admin/admins/${e._id}`} >
                                                                     <span className="flex-1 ms-3 ">{e.name}</span>
 

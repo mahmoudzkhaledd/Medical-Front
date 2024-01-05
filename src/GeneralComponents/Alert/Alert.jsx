@@ -4,7 +4,7 @@ export default function Alert({ text = "", title = "" }) {
 
     return (
         <div
-            className=" fixed top-6 right-5 z-50  flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            className=" fixed top-6 right-5 z-50  flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 "
             role="alert">
             <svg
                 className="flex-shrink-0 inline w-4 h-4 me-3"

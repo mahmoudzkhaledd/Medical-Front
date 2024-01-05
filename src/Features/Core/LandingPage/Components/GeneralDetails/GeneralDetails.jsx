@@ -23,11 +23,11 @@ export default function GeneralDetails({ data }) {
             <div className="flex flex-wrap items-center w-full lg:w-1/2 ">
                 <div>
                     <div className="flex flex-col w-full mt-4">
-                        <h3 className="max-w-2xl mt-3 text-center text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl lg:text-right dark:text-white">
+                        <h3 className="max-w-2xl mt-3 text-center text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl lg:text-right ">
                             {data.title}
 
                         </h3>
-                        <p className="max-w-2xl text-center py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl lg:text-right dark:text-gray-300">
+                        <p className="max-w-2xl text-center py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl lg:text-right ">
                             {data.subTitle}
                         </p>
                     </div>
@@ -38,10 +38,10 @@ export default function GeneralDetails({ data }) {
                                     <i className={`${e.icon} text-2xl text-white`}></i>
                                 </div>
                                 <div>
-                                    <h4 className="text-xl  font-medium text-gray-800 dark:text-gray-200">
+                                    <h4 className="text-xl  font-medium text-gray-800 ">
                                         {e.title}
                                     </h4>
-                                    <p className="mt-1 text-gray-500 dark:text-gray-400">
+                                    <p className="mt-1 text-gray-500 ">
                                         {e.subTitle}
                                     </p>
                                 </div>

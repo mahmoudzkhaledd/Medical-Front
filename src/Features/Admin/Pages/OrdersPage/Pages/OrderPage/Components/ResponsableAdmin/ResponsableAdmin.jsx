@@ -31,22 +31,22 @@ export default function ResponsableAdmin({ responableAdmins = [], refetch }) {
         setLoading(null);
     }
     return (
-        <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 ">
             {
                 showModal && <AddResponsableAdminModal isOpen={showModal} closeModal={() => setModal(false)} />
             }
             <div className="flex flex-row justify-between items-center">
-                <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+                <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl ">
                     المسؤولين عن الطلب
                 </h5>
                 <Button loading={loading == 'ref'} disabled={loading != null} onClick={refetchData} faicon="fa-solid fa-arrows-rotate" />
             </div>
-            <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+            <p className="text-sm font-normal text-gray-500 ">
                 المديرين المسؤولين عن الطلب ومتابعة الطلب
             </p>
             <ul className="my-4 space-y-3">
                 {
-                    responableAdmins.map((e, idx) => <li key={idx} className="flex cursor-pointer items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                    responableAdmins.map((e, idx) => <li key={idx} className="flex cursor-pointer items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow ">
                         <Link className="w-100" to={`/admin/admins/${e._id}`} >
                             <span className="flex-1 ms-3 ">{e.name}</span>
                         </Link>

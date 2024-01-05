@@ -44,9 +44,9 @@ export default function RegisterPage({ }) {
     return (
         <section >
             <div className="flex flex-col items-center justify-center py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-full bg-white rounded-lg shadow-lg  md:mt-0 sm:max-w-md xl:p-0  ">
                     <div className="p-4 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                             إنشاء حساب
                         </h1>
                         <form id="from-register" className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => e.preventDefault()}>
@@ -57,11 +57,11 @@ export default function RegisterPage({ }) {
                             <TextBox  disabled={loading} label="الهاتف" placeholder="0xx23456789" name="phone" />
                             <ComboBox text="الجنس" items={genders} selected={gender} onSelect={onSelect} />
                             <Button loading={loading} disabled={loading} text="إنشاء الحساب" width="100%" onClick={register} />
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p className="text-sm font-light text-gray-500 ">
                                 لديك حساب بالفعل؟{" "}
                                 <Link
                                     to="/login"
-                                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                    className="font-medium text-primary-600 hover:underline "
                                 >
                                     تسجيل الدخول
                                 </Link>

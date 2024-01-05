@@ -51,7 +51,7 @@ export default function AdminModal({ isOpen, closeModal, selected }) {
 
                                                 key={idx}>
                                                 <Button
-                                                    className={`mb-3 flex ${selected == e.name ? "bg-[color:var(--primary-select)]" : ""} items-center p-2 text-[color:var(--text)] rounded-lg dark:text-white hover:bg-[color:var(--primary)] group`}
+                                                    className={`mb-3 flex ${selected == e.name ? "bg-[color:var(--primary-select)]" : ""} items-center p-2 text-[color:var(--text)] rounded-lg hover:bg-[color:var(--primary)] group`}
                                                     faicon={e.icon} text={e.title} width={"100%"} />
                                             </Link>)
                                     }

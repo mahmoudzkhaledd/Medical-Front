@@ -90,7 +90,7 @@ export default function VerifyEmailPage({ }) {
                                 </div>
                                 <div
                                     id="alert-2"
-                                    className="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                    className="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 "
                                     role="alert"
                                 >
                                     <i className="fa-solid fa-circle-exclamation text-2xl"></i>

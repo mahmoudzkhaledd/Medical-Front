@@ -166,9 +166,9 @@ export default function AddNewAdmin({ editMode }) {
             <div className="grid grid-cols-1 px-4 pt-6 gap-6 xl:grid-cols-3 xl:gap-6">
 
                 <div className="col-span-2">
-                    <div className="h-fit mb-8 w-full bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                    <div className="h-fit mb-8 w-full bg-white rounded-lg shadow  md:mt-0 xl:p-0  ">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                                 {
                                     editMode ? "تعديل حساب مدير" : "اضافة مدير جديد"
                                 }
@@ -205,11 +205,11 @@ export default function AddNewAdmin({ editMode }) {
                     </div>
                     {
                         editMode &&
-                        <div className="h-fit  w-full bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700 ">
+                        <div className="h-fit  w-full bg-white rounded-lg shadow  md:mt-0 xl:p-0  ">
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
 
 
-                                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                                     كلمة المرور
                                 </h1>
 

@@ -13,7 +13,7 @@ export default function Sidebar({ className = "", selected }) {
             className={className}
             aria-label="Sidebar"
         >
-            <div style={{ backgroundColor: "var(--secondary)" }} className="h-full px-3 py-4 overflow-y-auto dark:bg-gray-800">
+            <div style={{ backgroundColor: "var(--secondary)" }} className="h-full px-3 py-4 overflow-y-auto ">
                 <div className='w-100 flex mb-5'>
                     <Logo className="mx-auto" link="/admin" />
                 </div>
@@ -27,7 +27,7 @@ export default function Sidebar({ className = "", selected }) {
                                     window.location.href = "/admin/login";
                                 } : null}
                                 to={e.link != null ? e.link : e.name && `/admin/${e.name}`}
-                                className={`flex ${selected == e.name ? "bg-[color:var(--primary-select)]" : ""} items-center p-2 text-[color:var(--text)] rounded-lg dark:text-white hover:bg-[color:var(--primary)] group`}
+                                className={`flex ${selected == e.name ? "bg-[color:var(--primary-select)]" : ""} items-center p-2 text-[color:var(--text)] rounded-lg  hover:bg-[color:var(--primary)] group`}
                             >
                                 <span className={e.icon}></span>
                                 <span className="ms-3">{e.title}</span>
@@ -44,7 +44,7 @@ export default function Sidebar({ className = "", selected }) {
                             }
                         }}
 
-                        className={`flex items-center p-2 text-[color:var(--text)] rounded-lg dark:text-white hover:bg-[color:var(--primary)] group`}
+                        className={`flex items-center p-2 text-[color:var(--text)] rounded-lg  hover:bg-[color:var(--primary)] group`}
                     >
 
                         <span className="ms-3">تحديث الصلاحيات</span>

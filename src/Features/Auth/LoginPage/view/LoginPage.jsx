@@ -45,9 +45,9 @@ export default function LoginPage({ }) {
     return (
         <section >
             <div className="flex flex-col items-center justify-center  py-8 mx-auto my-auto md:h-screen ">
-                <div className="w-full p-5  bg-white rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div className="w-full p-5  bg-white rounded-lg shadow-lg  md:mt-0 sm:max-w-md xl:p-0  ">
                     <div className="space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                             تسجيل الدخول
                         </h1>
                         <form id="frm-login" className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => e.preventDefault()}>
@@ -60,14 +60,14 @@ export default function LoginPage({ }) {
                                             id="remember"
                                             aria-describedby="remember"
                                             type="checkbox"
-                                            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
                                             required=""
                                         />
                                     </div>
                                     <div className="ml-3 text-sm">
                                         <label
                                             htmlFor="remember"
-                                            className="text-gray-500 dark:text-gray-300 mr-1"
+                                            className="text-gray-500  mr-1"
                                         >
                                             {" "}  تذكرني
                                         </label>
@@ -75,17 +75,17 @@ export default function LoginPage({ }) {
                                 </div>
                                 <a
                                     href="#"
-                                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                    className="text-sm font-medium text-primary-600 hover:underline "
                                 >
                                     نسيت كلمة المرور؟
                                 </a>
                             </div>
                             <Button disabled={loading} loading={loading} text="تسجيل الدخول" width="100%" onClick={login} />
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p className="text-sm font-light text-gray-500 ">
                                 ليس لديك حساب؟{" "}
                                 <Link
                                     to="/register"
-                                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                    className="font-medium text-primary-600 hover:underline "
                                 >
                                     إنشاء حساب
                                 </Link>

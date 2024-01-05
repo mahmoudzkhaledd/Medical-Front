@@ -6,7 +6,7 @@ export default function ServiceCard({ service }) {
 
 
 
-        <div style={{maxWidth: "350px",}} className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div style={{maxWidth: "350px",}} className=" bg-white border border-gray-200 rounded-lg shadow  ">
             <img
                 style={{
                     maxWidth: "100%",
@@ -16,11 +16,11 @@ export default function ServiceCard({ service }) {
                 className="rounded-t-lg" src={service.thumbnailImage?.url || "https://www.lumahealth.com/wp-content/uploads/2023/09/Chiang-Mai-hospitals.jpg"} alt="" />
             <div className="p-5">
                 <Link to={`/services/${service._id}`}>
-                    <h6 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h6 className="mb-2 text-lg font-bold tracking-tight text-gray-900 ">
                         {service.name}
                     </h6>
                 </Link>
-                <p className="mb-3 font-normal break-words text-gray-700 dark:text-gray-400">
+                <p className="mb-3 font-normal break-words text-gray-700 ">
                     {(service.subDescription == null || service.subDescription == "") ? "لا يوجد وصف مختصر للخدمة": service.subDescription}
                 </p>
                 <Link to={`/services/${service._id}`}>

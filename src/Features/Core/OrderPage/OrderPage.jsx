@@ -105,7 +105,7 @@ export default function OrderPage({ }) {
                             <br />
                             <div
                                 id="alert-2"
-                                className="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                className="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 "
                                 role="alert"
                             >
                                 <i className="fa-solid fa-circle-exclamation text-2xl"></i>
@@ -125,7 +125,7 @@ export default function OrderPage({ }) {
                             <br />
                             <div
                                 id="alert-2"
-                                className="flex items-center p-4 mb-4 text-yellow-400 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                                className="flex items-center p-4 mb-4 text-yellow-400 rounded-lg bg-red-50 "
                                 role="alert"
                             >
                                 <i className="fa-solid fa-circle-check text-2xl"></i>
@@ -161,16 +161,16 @@ export default function OrderPage({ }) {
                     ((order.status != "refused" && order.status != "canceled") ? orderStages : order.status == "refused" ? refusedStages : canceledStages)
                         .map((s, idx) => <li key={idx} className="relative mb-6 sm:mb-0">
                             <div className="flex items-center">
-                                <div className={`z-10 flex flex-col items-center justify-center w-10 h-10 bg-[color:${idx <= statusNumber ? "var(--primary)" : "var(--secondary)"}] rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0`}>
+                                <div className={`z-10 flex flex-col items-center justify-center w-10 h-10 bg-[color:${idx <= statusNumber ? "var(--primary)" : "var(--secondary)"}] rounded-full ring-0 ring-white  sm:ring-8  shrink-0`}>
                                     <i className={s.icon}></i>
                                 </div>
-                                <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700" />
+                                <div className="hidden sm:flex w-full bg-gray-200 h-0.5 " />
                             </div>
                             <div className="mt-3 sm:pe-8">
-                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                <h3 className="text-lg font-semibold text-gray-900 ">
                                     {s.name}
                                 </h3>
-                                <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+                                <p className="text-base font-normal text-gray-500 ">
                                     {s.description}
                                 </p>
                             </div>
