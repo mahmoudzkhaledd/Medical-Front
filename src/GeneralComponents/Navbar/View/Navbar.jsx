@@ -52,13 +52,7 @@ export default function Navbar() {
                                     faicon="fa-solid fa-circle-plus" text="إنشاء حساب جديد" />
                             </Link>
                         </div> : <ProfileIcon />
-                        // <Button
-                        //     color="var(--text)"
-                        //     textColor="var(--text-invert)"
-                        //     borderRadius={30}
-                        //     onClick={logOut}
-                        //     faicon="fa-solid fa-right-from-bracket"
-                        //     text="تسجيل الخروج" />
+                        
                     }
                 </div>
             </nav>
